@@ -1,11 +1,24 @@
 window.onload = function () {
-  var url, i;
+  var url,
+    i,
+    names = ["cpuload", "time"];  // the GPIO ports we will read
 
-  for (i = 0; i < 2; i++) {
-    url = document.URL + 'inputs/' + i;
-    $.getJSON(url, function (data) {
-      console.log('API response received');
-      $('#input').append('<p>input gpio port ' + data.gpio + ' on pin ' + data.pin + ' has current value ' + data.value + '</p>');
-    });
+  for (i in names) {
+    console.log('names:' + names[i]);
+    $('#sensor_' + names[i]).html('loading ' + names[i] + ' value...');
   }
-};
+
+  setInterval( function () {
+    for (i in names) {
+      url = document.URL + 'smarthome/' + names[i];
+      console.log('making API call ' + url);
+
+      $.getJSON(url, function (data) {
+        console.log('API response received. name ' + data.name + ' value = ' + data.value);
+        $('#sensor_' + data.name).html('Sensor ' + data.name + ' value is ' + data.value);
+      });
+    } // for 
+  }, 1000); // setInterval
+  
+}; //onload
+
