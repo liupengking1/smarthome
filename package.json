@@ -1,0 +1,23 @@
+{
+  "name": "smarthome",
+  "version": "1.0.0",
+  "description": "Smart home project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/liupengking1/smarthome.git"
+  },
+  "author": "peng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liupengking1/smarthome/issues"
+  },
+  "homepage": "https://github.com/liupengking1/smarthome#readme",
+  "dependencies": {
+    "connect": "^3.6.0",
+    "express": "^4.15.2"
+  }
+}
